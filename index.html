@@ -1,34 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <title>Frontend Mentor | Social links profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Social links profile</title>
+        :root {
+            --bg: #131313;
+            --bg-card: #1f1f1f;
+            --text: #ffffff;
+            --bg-link: #333333;
+            --text-alt: #d1e58f;
+            --font-regular: "Inter Regular";
+            --font-semibold: "Inter Semibold";
+            --font-bold: "Inter Bold";
+        }
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+        html {
+            font-size: 10px;
+        }
+
+        @font-face {
+            font-family: 'Inter Regular';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ck-8.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+            font-family: 'Inter Semibold';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiJ-Ck-8.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+            font-family: 'Inter Bold';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ck-8.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        .main {
+            min-block-size: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg);
+        }
+
+        .profile {
+            background-color: var(--bg-card);
+            padding: 3.8rem;
+            border-radius: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .profile__figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .profile__avatar {
+            border-radius: 50%;
+            inline-size: 8.3rem;
+            block-size: auto;
+        }
+
+        .profile__title {
+            font-family: var(--font-bold);
+            font-size: 2.24rem;
+            color: var(--text);
+        }
+
+        .profile__location {
+            font-family: var(--font-semibold);
+            font-size: 1.35rem;
+            color: var(--text-alt);
+        }
+
+        .profile__caption {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .profile__q {
+            font-family: var(--font-regular);
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+
+        .profile__q::before {
+            content: "\0022";
+        }
+
+        .profile__q::after {
+            content: "\0022";
+        }
+
+        .profile__links-list {
+            list-style-type: none;
+            inline-size: 28.7rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+
+        .profile__link-item {
+            text-align: center;
+            padding: 1.3rem 0;
+            border-radius: 1rem;
+            background-color: var(--bg-link);
+        }
+
+        .profile__link {
+            text-decoration: none;
+            font-family: var(--font-bold);
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+    </style>
 </head>
 <body>
-
-  Jessica Randall
-  London, United Kingdom
-  "Front-end developer and avid reader."
-
-  GitHub
-  Frontend Mentor
-  LinkedIn
-  Twitter
-  Instagram
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+<main class="main">
+    <article class="profile">
+        <figure class="profile__figure">
+            <img
+                    src="./assets/images/avatar-jessica.jpeg"
+                    alt=""
+                    class="profile__avatar"
+                    width="176"
+                    height="176"
+            >
+            <figcaption class="profile__caption">
+                <h2 class="profile__title">
+                    Jessica Rendall
+                </h2>
+                <p class="profile__location">
+                    London, United Kingdom
+                </p>
+            </figcaption>
+        </figure>
+        <p class="profile__userinfo">
+            <q class="profile__q">
+                Front-end developer and avid reader.
+            </q>
+        </p>
+        <ul class="profile__links-list">
+            <li class="profile__link-item">
+                <a href="" class="profile__link">
+                    GitHub
+                </a>
+            </li>
+            <li class="profile__link-item">
+                <a href="" class="profile__link">
+                    Frontend Mentor
+                </a>
+            </li>
+            <li class="profile__link-item">
+                <a href="" class="profile__link">
+                    LinkedIn
+                </a>
+            </li>
+            <li class="profile__link-item">
+                <a href="" class="profile__link">
+                    Twitter
+                </a>
+            </li>
+            <li class="profile__link-item">
+                <a href="" class="profile__link">
+                    Instagram
+                </a>
+            </li>
+        </ul>
+    </article>
+</main>
 </body>
 </html>
